@@ -26,6 +26,7 @@ void    fdf_init(t_data *fdf)
 	fdf->z = NULL;
 	fdf->filename = NULL;
 	fdf->fl = NULL;
+    fdf->height = 1.0;
     fdf->rows = 0;
     fdf->cols = 0;
 	fdf->mlx = NULL;

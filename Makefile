@@ -10,7 +10,8 @@ MLX = $(addprefix $(MLX_DIR), libmlx.a)
 MLXFLAGS = -lXext -lX11 -lm -lbsd -lz
 
 
-SRCS = srcs/fdf.c srcs/error.c srcs/parse_file.c srcs/draw.c srcs/isometric.c srcs/draw_line.c
+SRCS = srcs/fdf.c srcs/error.c srcs/parse_file.c srcs/draw.c srcs/isometric.c srcs/draw_line.c srcs/paralel.c \
+		srcs/zoom.c srcs/translate.c srcs/rotate.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)

@@ -6,7 +6,7 @@
 /*   By: mapadron <mapadron@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 11:53:40 by mapadron          #+#    #+#             */
-/*   Updated: 2025/10/19 19:13:49 by mapadron         ###   ########.fr       */
+/*   Updated: 2025/10/23 11:57:21 by mapadron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int	ft_atoi_hex(const char *nbr)
 	while(('0' <= nbr[i] && nbr[i] <= '9') || ('a' <= nbr[i] && nbr[i] <= 'f') || ('A' <= nbr[i] && nbr[i] <= 'F'))
 	{
 		if ('0' <= nbr[i] && nbr[i] <= '9')
-			n = 16 * n + (nbr[i] - 0);
+			n = 16 * n + (nbr[i] - '0');
 		else if ('a' <= nbr[i] && nbr[i] <= 'f')
 			n = 16 * n + (nbr[i] - 'a' + 10);
 		else if ('A' <= nbr[i] && nbr[i] <= 'F')

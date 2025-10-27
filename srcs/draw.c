@@ -12,22 +12,66 @@
 
 #include "../includes/fdf.h"
 
+int	close_window(t_data *fdf)
+{
+	mlx_destroy_image(fdf->mlx, fdf->img);
+	mlx_destroy_window(fdf->mlx, fdf->win);
+	exit(0);
+	return (0);
+}
+
 void	ft_pixel(t_data *data, int x, int y, int color)
 {
-	char	*dst;
+	int	i;
 
-	dst = data->addr + (y * data->line_length + x * (data->bpp / 8));
-	*(unsigned int*)dst = color;
+	if (0 <= x && x < WIDTH && 0 <= y && y < HEIGHT)
+	{
+		i = (y * data->line_length + x * (data->bpp / 8));
+		if (data->endian)
+		{
+			data->addr[i] = 0xFF;
+			data->addr[++i] = color >> 16 & 0xFF;
+			data->addr[++i] = color >> 8 & 0xFF;
+			data->addr[++i] = color & 0xFF;
+		}
+		else
+		{
+			data->addr[i] = color & 0xFF;
+			data->addr[++i] = color >>8 & 0xFF;
+			data->addr[++i] = color >> 16 & 0xFF;
+			data->addr[++i] = 0xFF;
+		}
+	}
+}
+
+int	key_hook(int kc, t_data *fdf)
+{
+	//printf("keycode: %d\n", keycode);
+	if (kc == KESC)
+		close_window(fdf);
+	if (kc == KM || kc == KN)
+		set_height(fdf, 2 * (kc == KM) - 1);
+	if (kc == KI)
+		isometric(fdf);
+	if (kc == KP)
+		paralel(fdf);
+	if (kc == KPLUS || kc == KPLUS2 || kc == KMINUS || kc == KMINUS2)
+		zoom(fdf, (kc % 4 == 3));
+	if (kc == KUP || kc == KDOWN || kc == KRIGHT || kc == KLEFT || kc == KAV || kc == KRE)
+		translate(fdf, kc);
+	if (kc == KA || kc == KW || kc == KS || kc == KD)
+		rotate(fdf, kc);
+	return (0);
 }
 
 void    draw(t_data *fdf)
 {
     fdf->mlx = mlx_init();
 	fdf->win = mlx_new_window(fdf->mlx, 1920, 1080, "FdF");
-	fdf->img = mlx_new_image(fdf->mlx, 1920, 1080);
-	fdf->addr = mlx_get_data_addr(fdf->img, &fdf->bpp, &fdf->line_length, &fdf->endian);
     isometric(fdf);
-    draw_board(fdf);
-    mlx_put_image_to_window(fdf->mlx, fdf->win, fdf->img, 0, 0);
+    //draw_board(fdf, 0);
+	mlx_hook(fdf->win, 17, 0L, close_window, fdf);
+	mlx_key_hook(fdf->win, key_hook, fdf);
+	//mlx_mouse_hook(fdf->win, mouse_hook, fdf);
     mlx_loop(fdf->mlx);
 }
