@@ -59,7 +59,7 @@ int	key_hook(int kc, t_data *fdf)
 		zoom(fdf, (kc % 4 == 3));
 	if (kc == KUP || kc == KDOWN || kc == KRIGHT || kc == KLEFT || kc == KAV || kc == KRE)
 		translate(fdf, kc);
-	if (kc == KA || kc == KW || kc == KS || kc == KD)
+	if (kc == KA || kc == KD)
 		rotate(fdf, kc);
 	return (0);
 }

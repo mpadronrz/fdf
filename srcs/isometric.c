@@ -40,6 +40,7 @@ void    isometric(t_data *fdf)
 
     i = 0;
     fdf->view = 0;
+    fdf->height = 1;
     while (i < fdf->rows)
     {
         j = 0;
@@ -65,9 +66,9 @@ void    set_height(t_data *fdf, int n)
     int i;
     int j;
 
-    if (-1 < fdf->height && fdf->height < 1)
+    if (-1 <= fdf->height + 0.1 * n && fdf->height + 0.1 * n <= 1)
         new_height = fdf->height + 0.1 * n;
-    else if (-5.1 < fdf->height && fdf->height < 5)
+    else if (-5 <= fdf->height + 0.5 * n && fdf->height + 0.5 * n <= 5)
         new_height = fdf->height + 0.5 * n;
     else
         new_height = fdf->height + n;
