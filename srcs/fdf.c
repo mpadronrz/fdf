@@ -20,6 +20,22 @@ void    ft_endl(void *ptr)
     write(1, str, ft_strlen(str));
 }
 
+void    ft_cleanup(t_data *fdf)
+{
+    int i;
+
+    i = 0;
+    while (i < fdf->rows)
+    {
+        free(fdf->pt[i]);
+        free(fdf->z[i]);
+        i ++;
+    }
+    ft_lstclear(&fdf->fl, free);
+    free(fdf->pt);
+    free(fdf->z);
+}
+
 void    fdf_init(t_data *fdf)
 {
     fdf->pt = NULL;

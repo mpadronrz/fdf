@@ -6,7 +6,7 @@
 /*   By: mapadron <mapadron@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 19:24:25 by mapadron          #+#    #+#             */
-/*   Updated: 2025/10/27 19:29:41 by mapadron         ###   ########.fr       */
+/*   Updated: 2025/10/31 08:03:06 by mapadron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,4 +106,5 @@ void    paralel(t_data *fdf);
 void    zoom(t_data *fdf, int t);
 void    translate(t_data *fdf, int kc);
 void    rotate(t_data *fdf, int kc);
+void    ft_cleanup(t_data *fdf);
 #endif
