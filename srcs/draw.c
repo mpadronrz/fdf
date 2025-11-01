@@ -53,14 +53,14 @@ int	key_hook(int kc, t_data *fdf)
 	if (kc == KM || kc == KN)
 		set_height(fdf, 2 * (kc == KM) - 1);
 	if (kc == KI)
-		isometric(fdf);
+		begin_isometric(fdf);
 	if (kc == KP)
-		paralel(fdf);
+		begin_paralel(fdf);
 	if (kc == KPLUS || kc == KPLUS2 || kc == KMINUS || kc == KMINUS2)
 		zoom(fdf, (kc % 4 == 3));
 	if (kc == KUP || kc == KDOWN || kc == KRIGHT || kc == KLEFT || kc == KAV || kc == KRE)
 		translate(fdf, kc);
-	if (kc == KA || kc == KD)
+	if (kc == KA || kc == KD || kc == KW || kc == KS)
 		rotate(fdf, kc);
 	return (0);
 }
@@ -69,10 +69,8 @@ void    draw(t_data *fdf)
 {
     fdf->mlx = mlx_init();
 	fdf->win = mlx_new_window(fdf->mlx, 1920, 1080, "FdF");
-    isometric(fdf);
-    //draw_board(fdf, 0);
+    begin_isometric(fdf);
 	mlx_hook(fdf->win, 17, 0L, close_window, fdf);
 	mlx_key_hook(fdf->win, key_hook, fdf);
-	//mlx_mouse_hook(fdf->win, mouse_hook, fdf);
     mlx_loop(fdf->mlx);
 }

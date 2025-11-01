@@ -45,6 +45,7 @@ void    fdf_init(t_data *fdf)
     fdf->height = 1.0;
     fdf->rows = 0;
     fdf->cols = 0;
+    fdf->angle = 0;
 	fdf->mlx = NULL;
 	fdf->win = NULL;
     fdf->img = NULL;

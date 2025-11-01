@@ -6,7 +6,7 @@
 /*   By: mapadron <mapadron@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 19:24:25 by mapadron          #+#    #+#             */
-/*   Updated: 2025/10/31 08:03:06 by mapadron         ###   ########.fr       */
+/*   Updated: 2025/11/01 19:19:58 by mapadron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@
 # define KS 115
 # define KW 119
 # define AL (3.1415926535 / 12)
+# define PI 3.14159265
 
 typedef struct s_color
 {
@@ -64,6 +65,9 @@ typedef struct s_color
 
 typedef struct s_point
 {
+	float	rx;
+	float	ry;
+	float	rz;
 	float	x;
 	float	y;
 	int		px;
@@ -85,6 +89,7 @@ typedef struct s_data
 	int			zoom;
 	t_point		mid;
 	int			view;
+	int			angle;
 	void		*mlx;
 	void		*win;
 	void		*img;
@@ -97,14 +102,18 @@ typedef struct s_data
 void    ft_error(t_data *fdf, char *mes, int sys_error);
 void	parse_file(t_data *fdf);
 void    draw(t_data *fdf);
+void    begin_isometric(t_data *fdf);
 void    isometric(t_data *fdf);
 void    set_height(t_data *fdf, int n);
 void    draw_board(t_data *fdf);
 void	ft_pixel(t_data *data, int x, int y, int color);
 void    calculate_pixels(t_data *fdf);
 void    paralel(t_data *fdf);
+void    begin_paralel(t_data *fdf);
 void    zoom(t_data *fdf, int t);
 void    translate(t_data *fdf, int kc);
 void    rotate(t_data *fdf, int kc);
 void    ft_cleanup(t_data *fdf);
+float	ft_cos(float x);
+float	ft_sin(float x);
 #endif

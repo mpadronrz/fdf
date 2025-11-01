@@ -1,69 +1,69 @@
 #include "../includes/fdf.h"
 
-void    set_params_iso(int kc, t_point *vec)
-{
-    if (kc == KAV || kc == KRE)
-    {
-        vec->x = 0;
-        vec->y = 2 * (kc == KRE) - 1;
-    }
-    else if (kc == KUP || kc == KDOWN)
-    {
-        vec->x = (2 * (kc == KUP) - 1) * sqrt(3.0) / 2.0;
-        vec->y = (2 * (kc == KUP) - 1) / 2.0;
-    }
-    else
-    {
-        vec->x = (2 * (kc == KRIGHT) - 1) * sqrt(3.0) / 2.0;
-        vec->y = - (2 * (kc == KRIGHT) - 1) / 2.0;
-    }
-}
-
-void    set_params_par(int kc, t_point *vec)
-{
-    if (kc == KAV || kc == KRE)
-    {
-        vec->x = 0;
-        vec->y = 2 * (kc == KRE) - 1;
-    }
-    else if (kc == KUP || kc == KDOWN)
-    {
-        vec->x = (2 * (kc == KUP) - 1) * sqrt(2.0) / 2;
-        vec->y = (2 * (kc == KUP) - 1) * sqrt(2.0) / 2;
-    }
-    else
-    {
-        vec->x = 2 * (kc == KRIGHT) - 1;
-        vec->y = 0;
-    }
-}
-
-void    set_params(t_data *fdf, int kc, t_point *vec)
-{
-    if (fdf->view)
-        set_params_par(kc, vec);
-    else
-        set_params_iso(kc, vec);
-}
-
-void    translate(t_data *fdf, int kc)
+void    translate_x(t_data *fdf, int dir)
 {
     int i;
     int j;
-    t_point vec;
 
-    set_params(fdf, kc, &vec);
     i = 0;
     while (i < fdf->rows)
     {
         j = 0;
         while (j < fdf->cols)
         {
-            fdf->pt[i][j].x += vec.x;
-            fdf->pt[i][j].y += vec.y;
+            fdf->pt[i][j].rx += dir;
             j ++;
         }
         i ++;
     }
-    calculate_pixels(fdf);
+}
+
+void    translate_y(t_data *fdf, int dir)
+{
+    int i;
+    int j;
+
+    i = 0;
+    while (i < fdf->rows)
+    {
+        j = 0;
+        while (j < fdf->cols)
+        {
+            fdf->pt[i][j].ry += dir;
+            j ++;
+        }
+        i ++;
+    }
+}
+
+void    translate_z(t_data *fdf, int dir)
+{
+    int i;
+    int j;
+
+    i = 0;
+    while (i < fdf->rows)
+    {
+        j = 0;
+        while (j < fdf->cols)
+        {
+            fdf->pt[i][j].rz += dir;
+            j ++;
+        }
+        i ++;
+    }
+}
+
+void    translate(t_data *fdf, int kc)
+{
+    if (kc == KUP || kc == KDOWN)
+        translate_x(fdf, 2 * (kc == KUP) - 1);
+    if (kc == KRIGHT || kc == KLEFT)
+        translate_y(fdf, 2 * (kc == KRIGHT) - 1);
+    if (kc == KRE || kc == KAV)
+        translate_z(fdf, 2 * (kc == KRE) - 1);
+    if (!fdf->view)
+        isometric(fdf);
+    else
+        paralel(fdf);
 }
