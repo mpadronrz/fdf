@@ -16,6 +16,8 @@ OBJS = $(SRCS:.c=.o)
 
 all: $(NAME)
 
+bonus: $(NAME)
+
 $(NAME): $(OBJS) $(LIBFT) $(MLX)
 	$(CC) $(FLAGS) $(OBJS) $(LIBFT) $(MLX) $(MLXFLAGS) -o $(NAME)
 
@@ -28,10 +30,16 @@ $(MLX):
 %.o: %.c Makefile
 	$(CC) -c $(FLAGS) $< -o $@
 
-clean:
+clean_local:
 	rm -rf $(OBJS)
 
-fclean: clean
+clean: clean_local
+	$(MAKE) clean -C $(LIBFT_DIR)
+	$(MAKE) clean -C $(MLX_DIR)
+
+fclean: clean_local
+	$(MAKE) fclean -C $(LIBFT_DIR)
+	$(MAKE) clean -C $(MLX_DIR)
 	rm -rf $(NAME)
 
 re: fclean all

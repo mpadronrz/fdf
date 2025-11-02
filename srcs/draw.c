@@ -16,6 +16,8 @@ int	close_window(t_data *fdf)
 {
 	mlx_destroy_image(fdf->mlx, fdf->img);
 	mlx_destroy_window(fdf->mlx, fdf->win);
+	mlx_destroy_display(fdf->mlx);
+	free(fdf->mlx);
 	ft_cleanup(fdf);
 	exit(0);
 	return (0);
