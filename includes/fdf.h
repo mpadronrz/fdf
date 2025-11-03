@@ -6,7 +6,7 @@
 /*   By: mapadron <mapadron@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 19:24:25 by mapadron          #+#    #+#             */
-/*   Updated: 2025/11/01 19:19:58 by mapadron         ###   ########.fr       */
+/*   Updated: 2025/11/03 11:42:32 by mapadron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,16 +39,18 @@
 # define KMINUS 45
 # define KMINUS2 65453
 # define KA 97
+# define KB 98
 # define KD 100
 # define KE 101
+# define KG 103
 # define KI 105
 # define KM 109
 # define KN 110
 # define KP 112
 # define KQ 113
+# define KR 114
 # define KS 115
 # define KW 119
-# define AL (3.1415926535 / 12)
 # define PI 3.14159265
 
 typedef struct s_color
@@ -62,7 +64,6 @@ typedef struct s_color
 	int	db;
 }	t_color;
 
-
 typedef struct s_point
 {
 	float	rx;
@@ -72,10 +73,9 @@ typedef struct s_point
 	float	y;
 	int		px;
 	int		py;
-	int	col;
+	int		col;
 
 }	t_point;
-
 
 typedef struct s_data
 {
@@ -87,7 +87,9 @@ typedef struct s_data
 	int			cols;
 	float		height;
 	int			zoom;
-	t_point		mid;
+	int			r;
+	int			g;
+	int			b;
 	int			view;
 	int			angle;
 	void		*mlx;
@@ -99,21 +101,51 @@ typedef struct s_data
 	int			endian;
 }	t_data;
 
-void    ft_error(t_data *fdf, char *mes, int sys_error);
-void	parse_file(t_data *fdf);
-void    draw(t_data *fdf);
-void    begin_isometric(t_data *fdf);
-void    isometric(t_data *fdf);
-void    set_height(t_data *fdf, int n);
-void    draw_board(t_data *fdf);
+//clean.c
+void	ft_cleanup(t_data *fdf);
+void	ft_error(t_data *fdf, char *mes, int sys_error);
+
+//color.c
+void	change_color(t_data *fdf, int kc);
+void	color_pixel(t_data *fdf, int x, int y, int color);
+
+//draw_board.c
+void	calculate_pixels(t_data *fdf);
+void	draw_board(t_data *fdf);
+
+//draw_line.c
+void	draw_line(t_data *fdf, t_point s, t_point e);
+
+//draw.c
+void	draw(t_data *fdf);
 void	ft_pixel(t_data *data, int x, int y, int color);
-void    calculate_pixels(t_data *fdf);
-void    paralel(t_data *fdf);
-void    begin_paralel(t_data *fdf);
-void    zoom(t_data *fdf, int t);
-void    translate(t_data *fdf, int kc);
-void    rotate(t_data *fdf, int kc);
-void    ft_cleanup(t_data *fdf);
+
+//height.c
+void	set_height(t_data *fdf, int n);
+
+//isometric.c
+void	isometric(t_data *fdf);
+void	begin_isometric(t_data *fdf);
+
+//math.c
 float	ft_cos(float x);
 float	ft_sin(float x);
+int		ft_abs(int n);
+
+//paralel.c
+void	paralel(t_data *fdf);
+void	begin_paralel(t_data *fdf);
+
+//parse_file.c
+void	parse_file(t_data *fdf);
+
+//rotate.c
+void	rotate(t_data *fdf, int kc);
+
+//translate.c
+void	translate(t_data *fdf, int kc);
+
+//zoom.c
+void	zoom(t_data *fdf, int t);
+
 #endif

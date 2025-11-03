@@ -6,7 +6,7 @@
 /*   By: mapadron <mapadron@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 21:25:49 by mapadron          #+#    #+#             */
-/*   Updated: 2025/10/19 17:45:33 by mapadron         ###   ########.fr       */
+/*   Updated: 2025/11/03 11:35:45 by mapadron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,37 +55,8 @@ void	calculate_altitudes(t_data *fdf)
 		i ++;
 		lst = lst->next;
 		if (!lst)
-			break;
+			break ;
 		line = ft_split(lst->content, ' ');
-	}
-}
-
-void	clean_nl(t_data	*fdf)
-{
-	t_list	*head;
-	t_list	*aux;
-
-	head = fdf->fl->next;
-	while (fdf->fl->content && !ft_strncmp(fdf->fl->content, "\n\0", 2))
-	{
-		ft_lstdelone(fdf->fl, free);
-		fdf->fl = head;
-		head = fdf->fl->next;
-	}
-	aux = fdf->fl;
-	while (head)
-	{
-		if (!ft_strncmp(head->content, "\n\0", 2))
-		{
-			aux->next = head->next;
-			ft_lstdelone(head, free);
-			head = aux->next;
-		}
-		else
-		{
-			aux = head;
-			head = head->next;
-		}
 	}
 }
 
@@ -117,16 +88,27 @@ void	file_2_lst(t_data *fdf, int fd)
 	}
 }
 
+void	check_filename(t_data *fdf)
+{
+	size_t	len;
+
+	len = ft_strlen(fdf->filename);
+	if (len < 4)
+		ft_error(fdf, "Filename must end in .fdf\0", 0);
+	if (ft_strncmp(fdf->filename + len - 4, ".fdf", 5))
+		ft_error(fdf, "Filename must end in .fdf\0", 0);
+}
+
 void	parse_file(t_data *fdf)
 {
 	int	fd;
 
+	check_filename(fdf);
 	fd = open(fdf->filename, O_RDONLY);
 	if (fd < 0)
 		ft_error(fdf, "Open failed\0", 1);
 	file_2_lst(fdf, fd);
 	close(fd);
-	//clean_nl(fdf);
 	fdf->rows = ft_lstsize(fdf->fl);
 	fdf->z = ft_calloc(sizeof(int *), fdf->rows);
 	if (!fdf->z)

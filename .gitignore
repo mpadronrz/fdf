@@ -1,4 +1,5 @@
 *.o
 fdf
-my_file
-prueba.c
+*.a
+mlx/test/mlx-test
+my_file.fdf

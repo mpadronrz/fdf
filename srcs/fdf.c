@@ -12,58 +12,37 @@
 
 #include "../includes/fdf.h"
 
-void    ft_endl(void *ptr)
+void	fdf_init(t_data *fdf)
 {
-    char    *str;
-
-    str = (char*)ptr;
-    write(1, str, ft_strlen(str));
-}
-
-void    ft_cleanup(t_data *fdf)
-{
-    int i;
-
-    i = 0;
-    while (i < fdf->rows)
-    {
-        free(fdf->pt[i]);
-        free(fdf->z[i]);
-        i ++;
-    }
-    ft_lstclear(&fdf->fl, free);
-    free(fdf->pt);
-    free(fdf->z);
-}
-
-void    fdf_init(t_data *fdf)
-{
-    fdf->pt = NULL;
+	fdf->pt = NULL;
 	fdf->z = NULL;
 	fdf->filename = NULL;
 	fdf->fl = NULL;
-    fdf->height = 1.0;
-    fdf->rows = 0;
-    fdf->cols = 0;
-    fdf->angle = 0;
+	fdf->height = 1.0;
+	fdf->rows = 0;
+	fdf->cols = 0;
+	fdf->angle = 0;
+	fdf->r = 2;
+	fdf->g = 2;
+	fdf->b = 2;
 	fdf->mlx = NULL;
 	fdf->win = NULL;
-    fdf->img = NULL;
+	fdf->img = NULL;
 	fdf->addr = NULL;
 	fdf->bpp = 0;
 	fdf->line_length = 0;
 	fdf->endian = 0;
 }
 
-int main(int argc, char **argv)
+int	main(int argc, char **argv)
 {
-    t_data  fdf;
+	t_data	fdf;
 
-    if (argc != 2)
-        ft_error(&fdf, "Must pass one and only one file as parameter.", 0);
-    fdf_init(&fdf);
-    fdf.filename = argv[1];
-    parse_file(&fdf);
-    draw(&fdf);
-    return (0);
+	fdf_init(&fdf);
+	if (argc != 2)
+		ft_error(&fdf, "Must pass one and only one file as parameter.", 0);
+	fdf.filename = argv[1];
+	parse_file(&fdf);
+	draw(&fdf);
+	return (0);
 }
