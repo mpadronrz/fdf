@@ -6,7 +6,7 @@
 /*   By: mapadron <mapadron@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 11:36:29 by mapadron          #+#    #+#             */
-/*   Updated: 2025/11/03 11:48:36 by mapadron         ###   ########.fr       */
+/*   Updated: 2025/11/03 20:00:56 by mapadron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,7 @@ void	rotate_z(t_data *fdf, int s)
 void	rotate(t_data *fdf, int kc)
 {
 	if (kc == KA || kc == KD)
-		rotate_z(fdf, 2 * (kc == KD) - 1);
-	if (kc == KW && fdf->angle < 30)
-		fdf->angle += 5;
-	if (kc == KS && fdf->angle > -15)
-		fdf->angle -= 5;
+		rotate_z(fdf, 2 * (kc == KA) - 1);
 	if (fdf->view)
 	{
 		if (kc == KW && fdf->angle < 45)

@@ -3,3 +3,5 @@ fdf
 *.a
 mlx/test/mlx-test
 my_file.fdf
+pruebas.fdf
+*.sh

@@ -6,7 +6,7 @@
 /*   By: mapadron <mapadron@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 11:15:31 by mapadron          #+#    #+#             */
-/*   Updated: 2025/11/03 11:37:11 by mapadron         ###   ########.fr       */
+/*   Updated: 2025/11/03 19:55:49 by mapadron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ void	translate_z(t_data *fdf, int dir)
 void	translate(t_data *fdf, int kc)
 {
 	if (kc == KUP || kc == KDOWN)
-		translate_x(fdf, 2 * (kc == KUP) - 1);
+		translate_x(fdf, 2 * (kc == KDOWN) - 1);
 	if (kc == KRIGHT || kc == KLEFT)
 		translate_y(fdf, 2 * (kc == KRIGHT) - 1);
 	if (kc == KRE || kc == KAV)

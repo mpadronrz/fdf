@@ -6,7 +6,7 @@
 /*   By: mapadron <mapadron@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 21:25:49 by mapadron          #+#    #+#             */
-/*   Updated: 2025/11/03 11:35:45 by mapadron         ###   ########.fr       */
+/*   Updated: 2025/11/03 19:27:44 by mapadron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,6 +110,8 @@ void	parse_file(t_data *fdf)
 	file_2_lst(fdf, fd);
 	close(fd);
 	fdf->rows = ft_lstsize(fdf->fl);
+	if (!fdf->rows)
+		exit(0);
 	fdf->z = ft_calloc(sizeof(int *), fdf->rows);
 	if (!fdf->z)
 		ft_error(fdf, "Memory allocation failed\0", 1);
