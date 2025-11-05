@@ -34,6 +34,17 @@ void	fdf_init(t_data *fdf)
 	fdf->endian = 0;
 }
 
+void	check_filename(t_data *fdf)
+{
+	size_t	len;
+
+	len = ft_strlen(fdf->filename);
+	if (len < 4)
+		ft_error(fdf, "Filename must end in .fdf\0", 0);
+	if (ft_strncmp(fdf->filename + len - 4, ".fdf", 5))
+		ft_error(fdf, "Filename must end in .fdf\0", 0);
+}
+
 int	main(int argc, char **argv)
 {
 	t_data	fdf;
@@ -42,6 +53,7 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		ft_error(&fdf, "Must pass one and only one file as parameter.", 0);
 	fdf.filename = argv[1];
+	check_filename(&fdf);
 	parse_file(&fdf);
 	draw(&fdf);
 	return (0);

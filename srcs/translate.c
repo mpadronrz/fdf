@@ -6,13 +6,13 @@
 /*   By: mapadron <mapadron@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 11:15:31 by mapadron          #+#    #+#             */
-/*   Updated: 2025/11/03 19:55:49 by mapadron         ###   ########.fr       */
+/*   Updated: 2025/11/05 11:56:06 by mapadron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	translate_x(t_data *fdf, int dir)
+static void	translate_x(t_data *fdf, int dir)
 {
 	int	i;
 	int	j;
@@ -30,7 +30,7 @@ void	translate_x(t_data *fdf, int dir)
 	}
 }
 
-void	translate_y(t_data *fdf, int dir)
+static void	translate_y(t_data *fdf, int dir)
 {
 	int	i;
 	int	j;
@@ -48,7 +48,7 @@ void	translate_y(t_data *fdf, int dir)
 	}
 }
 
-void	translate_z(t_data *fdf, int dir)
+static void	translate_z(t_data *fdf, int dir)
 {
 	int	i;
 	int	j;

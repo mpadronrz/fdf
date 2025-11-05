@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mapadron <mapadron@student.42barcelon      +#+  +:+       +#+        */
+/*   By: mapadron <mapadron@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 11:53:41 by mapadron          #+#    #+#             */
-/*   Updated: 2025/10/03 11:53:41 by mapadron         ###   ########.fr       */
+/*   Updated: 2025/11/05 20:38:46 by mapadron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ static void	*free_array(char **array, size_t size)
 	return (NULL);
 }
 
-static size_t	count_words(char const *s, char c)
+size_t	count_words(char const *s, char c)
 {
 	int		new_word;
 	size_t	words;

@@ -12,7 +12,7 @@
 
 #include "../includes/fdf.h"
 
-int	close_window(t_data *fdf)
+static int	close_window(t_data *fdf)
 {
 	ft_cleanup(fdf);
 	exit(0);
@@ -43,7 +43,7 @@ void	ft_pixel(t_data *data, int x, int y, int color)
 	}
 }
 
-int	key_hook(int kc, t_data *fdf)
+static int	key_hook(int kc, t_data *fdf)
 {
 	if (kc == KESC)
 		close_window(fdf);

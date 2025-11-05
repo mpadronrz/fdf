@@ -6,7 +6,7 @@
 /*   By: mapadron <mapadron@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/03 11:52:33 by mapadron          #+#    #+#             */
-/*   Updated: 2025/10/18 23:43:32 by mapadron         ###   ########.fr       */
+/*   Updated: 2025/11/05 20:43:00 by mapadron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,4 +69,5 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *));
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
 char	*get_next_line(int fd);
+size_t	count_words(char const *s, char c);
 #endif

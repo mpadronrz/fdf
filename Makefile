@@ -1,6 +1,6 @@
 NAME = fdf
 CC = cc
-FLAGS = -Wall -Wextra -Werror -g3
+FLAGS = -Wall -Wextra -Werror
 
 LIBFT_DIR = libft/
 LIBFT = $(addprefix $(LIBFT_DIR), libft.a)
@@ -27,7 +27,7 @@ $(LIBFT):
 $(MLX):
 	$(MAKE) -C $(MLX_DIR)
 
-%.o: %.c Makefile
+%.o: %.c Makefile includes/fdf.h
 	$(CC) -c $(FLAGS) $< -o $@
 
 clean_local:

@@ -12,7 +12,7 @@
 
 #include "../includes/fdf.h"
 
-void	init_color(t_color *color, t_point s, t_point e)
+static void	init_color(t_color *color, t_point s, t_point e)
 {
 	color->col = s.col;
 	color->dr = (e.col >> 16 & 0xFF) - (s.col >> 16 & 0xFF);
@@ -23,7 +23,7 @@ void	init_color(t_color *color, t_point s, t_point e)
 	color->b = 0;
 }
 
-void	choose_color(t_color *color, int steps)
+static void	choose_color(t_color *color, int steps)
 {
 	int	r;
 	int	g;
@@ -38,7 +38,7 @@ void	choose_color(t_color *color, int steps)
 	color->col = (r << 16) | (g << 8) | b;
 }
 
-int	choose_dir(t_point *s, t_point d, t_point n, int er)
+static int	choose_dir(t_point *s, t_point d, t_point n, int er)
 {
 	int	er2;
 

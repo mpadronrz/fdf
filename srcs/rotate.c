@@ -6,13 +6,13 @@
 /*   By: mapadron <mapadron@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 11:36:29 by mapadron          #+#    #+#             */
-/*   Updated: 2025/11/03 20:00:56 by mapadron         ###   ########.fr       */
+/*   Updated: 2025/11/05 11:55:51 by mapadron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/fdf.h"
 
-void	rotate_z(t_data *fdf, int s)
+static void	rotate_z(t_data *fdf, int s)
 {
 	float	x;
 	float	y;

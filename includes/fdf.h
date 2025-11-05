@@ -6,7 +6,7 @@
 /*   By: mapadron <mapadron@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 19:24:25 by mapadron          #+#    #+#             */
-/*   Updated: 2025/11/03 11:42:32 by mapadron         ###   ########.fr       */
+/*   Updated: 2025/11/05 12:01:24 by mapadron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@
 # define KLEFT 65361
 # define KRE 65434
 # define KAV 65435
-# define KSPACE 32
-# define KENTER 65293
 # define KPLUS 43
 # define KPLUS2 65451
 # define KMINUS 45
@@ -41,13 +39,11 @@
 # define KA 97
 # define KB 98
 # define KD 100
-# define KE 101
 # define KG 103
 # define KI 105
 # define KM 109
 # define KN 110
 # define KP 112
-# define KQ 113
 # define KR 114
 # define KS 115
 # define KW 119

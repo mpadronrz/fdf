@@ -12,15 +12,7 @@
 
 #include "../includes/fdf.h"
 
-void	ft_endl(void *ptr)
-{
-	char	*str;
-
-	str = (char *)ptr;
-	write(1, str, ft_strlen(str));
-}
-
-void	clean_mlx(t_data *fdf)
+static void	clean_mlx(t_data *fdf)
 {
 	if (fdf->mlx)
 	{
