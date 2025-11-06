@@ -44,4 +44,4 @@ fclean: clean_local
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean_local clean fclean re bonus
