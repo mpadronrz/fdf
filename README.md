@@ -29,6 +29,8 @@ It reinforces key programming and mathematical concepts:
 * Clean and modular code design
 * Graphics rendering algorithms
 
+The project is written in accordance with the 42 Norm, ensuring clean, readable, and maintainable code.
+
 > Peer-graded at **42Barcelona** with a final grade of **125/100**.
 
 ---
