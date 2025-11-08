@@ -8,16 +8,14 @@ It was completed and peer-graded at **42Barcelona**, receiving a grade of **125/
 The project uses **MiniLibX** for graphics and handles **3D projection, translation, rotation, zooming, and color effects**.
 
 ---
-
 ## 📑 Table of Contents
-
-* [About the Project](#🏫-about-the-project)
-* [Features](#🚀-features)
-* [Compilation](#⚙️-compilation)
-* [Execution](#🕹️-execution)
-* [Controls](#🎮-controls)
-* [`.fdf` File Format](#🗂️-fdf-file-format)
-* [How It Works](#🧠-how-it-works)
+- [About the Project](#about-the-project)
+- [Features](#features)
+- [Compilation](#compilation)
+- [Execution](#execution)
+- [Controls](#controls)
+- [.fdf File Format](#fdf-file-format)
+- [How It Works](#how-it-works)
 
 ---
 
