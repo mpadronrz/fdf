@@ -6,7 +6,7 @@
 /*   By: mapadron <mapadron@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/18 19:24:25 by mapadron          #+#    #+#             */
-/*   Updated: 2025/11/05 12:01:24 by mapadron         ###   ########.fr       */
+/*   Updated: 2025/11/08 21:18:53 by mapadron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,8 @@
 # define KR 114
 # define KS 115
 # define KW 119
+# define KX 120
+# define KZ 122
 # define PI 3.14159265
 
 typedef struct s_color

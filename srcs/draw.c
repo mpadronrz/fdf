@@ -56,7 +56,7 @@ static int	key_hook(int kc, t_data *fdf)
 	if (kc == KPLUS || kc == KPLUS2 || kc == KMINUS || kc == KMINUS2)
 		zoom(fdf, (kc % 4 == 3));
 	if (kc == KUP || kc == KDOWN || kc == KRIGHT
-		|| kc == KLEFT || kc == KAV || kc == KRE)
+		|| kc == KLEFT || kc == KX || kc == KZ)
 		translate(fdf, kc);
 	if (kc == KA || kc == KD || kc == KW || kc == KS)
 		rotate(fdf, kc);
@@ -70,7 +70,7 @@ void	draw(t_data *fdf)
 	fdf->mlx = mlx_init();
 	if (!fdf->mlx)
 		ft_error(fdf, "mlx_init failed\0", 1);
-	fdf->win = mlx_new_window(fdf->mlx, 1920, 1080, "FdF");
+	fdf->win = mlx_new_window(fdf->mlx, WIDTH, HEIGHT, "FdF");
 	if (!fdf->win)
 		ft_error(fdf, "Failed to create new window\0", 1);
 	begin_isometric(fdf);

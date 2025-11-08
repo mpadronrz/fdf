@@ -6,7 +6,7 @@
 /*   By: mapadron <mapadron@student.42barcelona.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/03 11:15:31 by mapadron          #+#    #+#             */
-/*   Updated: 2025/11/05 11:56:06 by mapadron         ###   ########.fr       */
+/*   Updated: 2025/11/08 21:19:41 by mapadron         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,8 @@ void	translate(t_data *fdf, int kc)
 		translate_x(fdf, 2 * (kc == KDOWN) - 1);
 	if (kc == KRIGHT || kc == KLEFT)
 		translate_y(fdf, 2 * (kc == KRIGHT) - 1);
-	if (kc == KRE || kc == KAV)
-		translate_z(fdf, 2 * (kc == KRE) - 1);
+	if (kc == KX || kc == KZ)
+		translate_z(fdf, 2 * (kc == KX) - 1);
 	if (!fdf->view)
 		isometric(fdf);
 	else
