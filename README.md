@@ -19,7 +19,7 @@ The project uses **MiniLibX** for graphics and handles **3D projection, translat
 
 ---
 
-### 🏫 About the Project
+### 🏫 About the Project <a id="about-the-project"></a>
 
 **FdF** is part of the **42 curriculum**, introducing 3D graphics and coordinate manipulation in C.
 It reinforces key programming and mathematical concepts:
@@ -33,7 +33,7 @@ It reinforces key programming and mathematical concepts:
 
 ---
 
-### 🚀 Features
+### 🚀 Features <a id="features"></a>
 
 * Render 3D wireframes from `.fdf` map files
 * Isometric and parallel projections
@@ -43,7 +43,7 @@ It reinforces key programming and mathematical concepts:
 
 ---
 
-### ⚙️ Compilation
+### ⚙️ Compilation <a id="compilation"></a>
 
 All required libraries (**MiniLibX** and **Libft**) are included in the repository.
 
@@ -71,7 +71,7 @@ make re
 
 ---
 
-### 🕹️ Execution
+### 🕹️ Execution <a id="execution"></a>
 
 ```bash
 ./fdf test_maps/42.fdf
@@ -83,7 +83,7 @@ You can use your own `.fdf` map or one from the provided `test_maps/` folder.
 
 ---
 
-### 🎮 Controls
+### 🎮 Controls <a id="controls"></a>
 
 | Key             | Action                                                                                    |
 | --------------- | ----------------------------------------------------------------------------------------- |
@@ -105,7 +105,7 @@ You can use your own `.fdf` map or one from the provided `test_maps/` folder.
 
 ---
 
-### 🗂️ `.fdf` File Format
+### 🗂️ `.fdf` File Format <a id="fdf-file-format"></a>
 
 * Only **rectangular maps** are accepted (same number of elements per line).
 * Each number represents the altitude (Z-value) of a point.
@@ -125,7 +125,7 @@ This represents a row of points, some with custom colors in hexadecimal.
 
 ---
 
-### 🧠 How it works
+### 🧠 How it works <a id="how-it-works"></a>
 
 * Reads the `.fdf` file and stores points with altitudes and optional colors.
 * Uses **linear algebra and trigonometry** to calculate 3D positions and projection coordinates.
